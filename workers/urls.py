@@ -1,14 +1,14 @@
 from django.urls import path
 
 from .apps import WorkersConfig
-from .views import
+from .views import WorkerRetrieveAPIView
 
 app_name = WorkersConfig.name
 
 
 urlpatterns = [
-    path("/api/v1/team/<team_id>/WorkerLis", LessonListApiView.as_view(), name="team_workers_list"),
-    path("/api/v1/worker/<worker_id>", LessonRetrieveAPIView.as_view(), name="worker_retrieve"),
+    # path("api/v1/team/<team_id>/WorkerLis", LessonListApiView.as_view(), name="team_workers_list"),
+    path("api/v1/worker/<int:pk>", WorkerRetrieveAPIView.as_view(), name="worker_retrieve"),
     # path("lesson/create", LessonCreateApiView.as_view(), name="lesson_create"),
     # path("lesson/<int:pk>/update", LessonUpdateAPIView.as_view(), name="lesson_update"),
     # path(

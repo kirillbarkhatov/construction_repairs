@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import Worker
+from .serializers import WorkerSerializer
+
+class WorkerRetrieveAPIView(generics.RetrieveAPIView):
+    """Получить информацию о работнике"""
+
+    serializer_class = WorkerSerializer
+    queryset = Worker.objects.all()
